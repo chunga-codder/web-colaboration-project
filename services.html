@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>School services · Our services</title>
+  <!-- Font Awesome Icons (free) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: #f6f9fc;
+      color: #1e2b3c;
+      line-height: 1.6;
+    }
+
+    .container {
+      max-width: 1280px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* header / navigation */
+    .navbar {
+      background: white;
+      box-shadow: 0 4px 12px rgba(0, 20, 30, 0.06);
+      padding: 18px 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      backdrop-filter: blur(6px);
+      background: rgba(255, 255, 255, 0.92);
+    }
+
+    .nav-wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #0a3b5c;
+      letter-spacing: -0.5px;
+    }
+
+    .logo i {
+      color: #2b7a9c;
+      font-size: 2rem;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      font-weight: 500;
+    }
+
+    .nav-links a {
+      text-decoration: none;
+      color: #1e3b4f;
+      transition: color 0.2s;
+      font-size: 1.05rem;
+    }
+
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: #1f7a9e;
+      border-bottom: 3px solid #1f7a9e;
+      padding-bottom: 6px;
+    }
+
+    .nav-links a.active {
+      color: #0b4a6b;
+      font-weight: 600;
+    }
+
+    /* hero / page intro */
+    .page-hero {
+      background: linear-gradient(145deg, #e7f0f7 0%, #d4e4ef 100%);
+      border-radius: 42px;
+      margin: 32px 0 40px;
+      padding: 48px 56px;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 6px 18px rgba(26, 67, 93, 0.08);
+    }
+
+    .hero-text {
+      flex: 2 1 300px;
+    }
+
+    .hero-text h1 {
+      font-size: 2.8rem;
+      font-weight: 700;
+      color: #08344d;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .hero-text h1 i {
+      color: #1f7a9e;
+      margin-right: 10px;
+    }
+
+    .hero-text p {
+      font-size: 1.2rem;
+      color: #1f445e;
+      max-width: 550px;
+      margin-top: 12px;
+      font-weight: 400;
+    }
+
+    .hero-badge {
+      background: #1a5d7a;
+      color: white;
+      padding: 10px 28px;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 1rem;
+      box-shadow: 0 4px 10px rgba(21, 78, 107, 0.2);
+      display: inline-block;
+      margin-top: 16px;
+    }
+
+    .hero-illustration {
+      flex: 1 1 180px;
+      text-align: center;
+      font-size: 4.2rem;
+      color: #14617e;
+      background: rgba(255, 255, 255, 0.4);
+      padding: 20px 24px;
+      border-radius: 80px;
+      backdrop-filter: blur(2px);
+    }
+
+    /* section title */
+    .section-title {
+      font-size: 2.2rem;
+      font-weight: 600;
+      color: #0a364f;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .section-title i {
+      color: #1f7a9e;
+      font-size: 2rem;
+    }
+
+    .subhead {
+      color: #2f5775;
+      margin-bottom: 40px;
+      font-size: 1.1rem;
+      border-left: 5px solid #2b86ae;
+      padding-left: 20px;
+      background: rgba(43, 134, 174, 0.04);
+      border-radius: 0 12px 12px 0;
+    }
+
+    /* services grid */
+    .services-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 30px;
+      margin: 30px 0 50px;
+    }
+
+    .service-card {
+      background: white;
+      padding: 28px 22px 32px;
+      border-radius: 34px;
+      box-shadow: 0 8px 22px rgba(0, 28, 48, 0.06);
+      transition: all 0.25s ease;
+      border: 1px solid rgba(200, 219, 235, 0.3);
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .service-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 34px rgba(21, 78, 107, 0.12);
+      border-color: #b7d4e8;
+    }
+
+    .service-icon {
+      font-size: 2.8rem;
+      color: #14617e;
+      background: #e3eff7;
+      padding: 14px 16px;
+      border-radius: 28px;
+      margin-bottom: 18px;
+      transition: 0.2s;
+    }
+
+    .service-card:hover .service-icon {
+      background: #c8e0ef;
+      transform: scale(1.02);
+    }
+
+    .service-card h3 {
+      font-size: 1.5rem;
+      font-weight: 600;
+      color: #0a3b5c;
+      margin-bottom: 8px;
+    }
+
+    .service-card p {
+      color: #2b4d66;
+      margin-bottom: 18px;
+      flex: 1;
+    }
+
+    .service-tag {
+      display: inline-block;
+      background: #e3eef7;
+      color: #135c7a;
+      font-size: 0.8rem;
+      font-weight: 600;
+      padding: 6px 16px;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      margin-top: 4px;
+    }
+
+    .service-card .btn-ghost {
+      background: transparent;
+      border: 2px solid #136782;
+      color: #136782;
+      padding: 8px 18px;
+      border-radius: 40px;
+      font-weight: 600;
+      font-size: 0.9rem;
+      margin-top: 14px;
+      transition: 0.2s;
+      cursor: default;
+      width: fit-content;
+    }
+
+    .service-card .btn-ghost i {
+      margin-left: 6px;
+      font-size: 0.8rem;
+    }
+
+    .service-card:hover .btn-ghost {
+      background: #136782;
+      color: white;
+    }
+
+    /* highlight banner */
+    .highlight-banner {
+      background: #0d405b;
+      background: linear-gradient(135deg, #0f3f58 0%, #1d5f7c 100%);
+      border-radius: 40px;
+      padding: 44px 48px;
+      margin: 20px 0 50px;
+      color: white;
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      box-shadow: 0 12px 28px rgba(12, 50, 73, 0.3);
+    }
+
+    .highlight-banner h2 {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: -0.3px;
+    }
+
+    .highlight-banner h2 i {
+      margin-right: 14px;
+      color: #b3def5;
+    }
+
+    .highlight-banner .banner-btn {
+      background: #ffcf8a;
+      border: none;
+      padding: 14px 36px;
+      border-radius: 60px;
+      font-weight: 700;
+      color: #0f3b52;
+      font-size: 1rem;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transition: 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      cursor: default;
+    }
+
+    .highlight-banner .banner-btn i {
+      font-size: 1.1rem;
+    }
+
+    .highlight-banner .banner-btn:hover {
+      background: #fad494;
+      transform: scale(1.02);
+    }
+
+    /* footer */
+    .footer {
+      margin-top: 60px;
+      padding: 40px 0 28px;
+      border-top: 1px solid rgba(30, 67, 92, 0.08);
+      text-align: center;
+      color: #2b5777;
+      font-weight: 400;
+      background: #f2f8fe;
+      border-radius: 60px 60px 0 0;
+    }
+
+    .footer i {
+      color: #296b89;
+      margin: 0 4px;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-bottom: 18px;
+    }
+
+    .footer-links a {
+      color: #1a4d69;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.1s;
+    }
+
+    .footer-links a:hover {
+      color: #0a2f45;
+      text-decoration: underline;
+    }
+
+    /* responsive touches */
+    @media (max-width: 700px) {
+      .page-hero {
+        padding: 32px 24px;
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .hero-text h1 {
+        font-size: 2.2rem;
+      }
+
+      .hero-illustration {
+        margin-top: 24px;
+        font-size: 3.2rem;
+        width: 100%;
+      }
+
+      .nav-wrapper {
+        flex-direction: column;
+        gap: 16px;
+      }
+
+      .nav-links {
+        gap: 18px;
+        flex-wrap: wrap;
+        justify-content: center;
+      }
+
+      .highlight-banner {
+        flex-direction: column;
+        text-align: center;
+        gap: 24px;
+      }
+
+      .services-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .services-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- navigation -->
+  <nav class="navbar">
+    <div class="container nav-wrapper">
+      <div class="logo">
+        <i class="fas fa-graduation-cap"></i>
+        <span>EduSphere</span>
+      </div>
+      <div class="nav-links">
+        <a href="#"><i class="fas fa-home"></i> Home</a>
+        <a href="#" class="active"><i class="fas fa-concierge-bell"></i> Services</a>
+        <a href="#"><i class="fas fa-users"></i> About</a>
+        <a href="#"><i class="fas fa-phone-alt"></i> Contact</a>
+      </div>
+    </div>
+  </nav>
+
+  <main class="container">
+    <!-- hero -->
+    <section class="page-hero">
+      <div class="hero-text">
+        <h1><i class="fas fa-chalkboard-teacher"></i> Our Services</h1>
+        <p>We provide a holistic education experience — from academics to personal growth, and everything in between.</p>
+        <div class="hero-badge">
+          <i class="fas fa-calendar-check"></i> 2026 · new programs
+        </div>
+      </div>
+      <div class="hero-illustration">
+        <i class="fas fa-book-open"></i>
+        <i class="fas fa-laptop-code" style="margin-left: 10px;"></i>
+      </div>
+    </section>
+
+    <!-- services introduction -->
+    <div class="subhead">
+      <i class="fas fa-arrow-right" style="margin-right: 10px;"></i> 
+      Explore our core services designed to nurture curiosity, creativity, and character.
+    </div>
+
+    <!-- services grid -->
+    <div class="services-grid">
+
+      <!-- card 1 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-flask"></i></div>
+        <h3>STEM Lab</h3>
+        <p>Hands-on science, technology, engineering, and math projects. Robotics, coding, and experimental design.</p>
+        <span class="service-tag"><i class="fas fa-microscope"></i> grades 4–12</span>
+        <div class="btn-ghost">Learn more <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <!-- card 2 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-paint-brush"></i></div>
+        <h3>Creative Arts</h3>
+        <p>Visual arts, music, theater, and digital media. Cultivate expression and confidence through the arts.</p>
+        <span class="service-tag"><i class="fas fa-palette"></i> all ages</span>
+        <div class="btn-ghost">Learn more <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <!-- card 3 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-futbol"></i></div>
+        <h3>Sports & Wellness</h3>
+        <p>Team sports, fitness programs, yoga, and wellness workshops. Building healthy bodies and minds.</p>
+        <span class="service-tag"><i class="fas fa-heartbeat"></i> K–12</span>
+        <div class="btn-ghost">Learn more <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <!-- card 4 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-users-cog"></i></div>
+        <h3>Student Support</h3>
+        <p>Counseling, mentoring, and academic advising. Every student gets the guidance they need to thrive.</p>
+        <span class="service-tag"><i class="fas fa-hand-holding-heart"></i> confidential</span>
+        <div class="btn-ghost">Learn more <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <!-- card 5 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-globe-americas"></i></div>
+        <h3>Global Exchange</h3>
+        <p>International partnerships, language programs, and cultural immersion. Prepare for a connected world.</p>
+        <span class="service-tag"><i class="fas fa-plane"></i> grades 8–12</span>
+        <div class="btn-ghost">Learn more <i class="fas fa-arrow-right"></i></div>
+      </div>
+
+      <!-- card 6 -->
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-laptop"></i></div>
+        <h3>Digital Campus</h3>
+        <p>Online learning platforms, virtual classrooms, and digital resources. Education that fits your life.</p>
+        <span class="service-tag"><i class="fas fa-wifi"></i> hybrid</span>
+        <div class="btn-ghost">Learn more <i class="fas fa-arrow-right"></i></div>
+      </div>
+    </div>
+
+    <!-- highlight banner : additional service info -->
+    <div class="highlight-banner">
+      <h2><i class="fas fa-star"></i> After‑school & enrichment</h2>
+      <div>
+        <span class="banner-btn"><i class="fas fa-clock"></i> 30+ activities</span>
+        <span style="margin-left: 16px; opacity: 0.9;"><i class="fas fa-check-circle"></i> academic & recreational</span>
+      </div>
+    </div>
+
+    <!-- extra service details (optional) -->
+    <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: space-between; background: #e7f1f9; padding: 24px 28px; border-radius: 40px; margin: 10px 0 10px;">
+      <div><i class="fas fa-bus" style="color: #1b6b8a;"></i> <strong>Transportation</strong> — safe & reliable routes</div>
+      <div><i class="fas fa-utensils" style="color: #1b6b8a;"></i> <strong>Nutrition</strong> — balanced meals, dietary options</div>
+      <div><i class="fas fa-clock" style="color: #1b6b8a;"></i> <strong>Extended care</strong> — early drop‑off & late pick‑up</div>
+    </div>
+
+  </main>
+
+  <!-- footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-links">
+        <a href="#"><i class="fas fa-address-card"></i> About us</a>
+        <a href="#"><i class="fas fa-envelope"></i> Newsletter</a>
+        <a href="#"><i class="fas fa-calendar-alt"></i> Events</a>
+        <a href="#"><i class="fas fa-shield-alt"></i> Privacy</a>
+      </div>
+      <p style="margin-top: 8px;">
+        <i class="fas fa-school"></i> EduSphere School · 2026 · 
+        <i class="fas fa-heart" style="color: #b3425a;"></i> 
+        <span style="font-weight: 300;">where learning takes flight</span>
+      </p>
+      <p style="font-size: 0.9rem; opacity: 0.7; margin-top: 12px;">
+        <i class="fas fa-phone-alt"></i> +1 (800) 555‑EDU   |  
+        <i class="fas fa-map-pin"></i> 123 Campus Drive, Learning City
+      </p>
+    </div>
+  </footer>
+</body>
+</html>
