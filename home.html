@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>German International School – Home</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #f8fafc;
+            color: #1e2a3a;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* ===== HOME SECTION (YOUR PART) ===== */
+        .hero {
+            background: linear-gradient(135deg, #0a1e3c 0%, #1a3a6b 100%);
+            color: #fff;
+            padding: 80px 0 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            min-height: 80vh;
+            display: flex;
+            align-items: center;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: -60px;
+            right: -60px;
+            width: 300px;
+            height: 300px;
+            background: rgba(245, 197, 24, 0.08);
+            border-radius: 50%;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -80px;
+            left: -80px;
+            width: 250px;
+            height: 250px;
+            background: rgba(245, 197, 24, 0.05);
+            border-radius: 50%;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 16px;
+            letter-spacing: 1px;
+            animation: fadeInUp 0.8s ease;
+        }
+
+        .hero h1 span {
+            color: #f5c518;
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 700px;
+            margin: 0 auto 30px;
+            opacity: 0.9;
+            line-height: 1.8;
+            animation: fadeInUp 1s ease;
+        }
+
+        .hero .btn {
+            display: inline-block;
+            background: #f5c518;
+            color: #0a1e3c;
+            padding: 14px 44px;
+            border-radius: 30px;
+            font-weight: 700;
+            font-size: 1.05rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 15px rgba(245, 197, 24, 0.4);
+            animation: fadeInUp 1.2s ease;
+        }
+
+        .hero .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(245, 197, 24, 0.5);
+        }
+
+        .hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 50px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.4s ease;
+        }
+
+        .hero-stats .stat {
+            text-align: center;
+        }
+
+        .hero-stats .stat .number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #f5c518;
+            display: block;
+        }
+
+        .hero-stats .stat .label {
+            font-size: 1rem;
+            opacity: 0.85;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Decorative icons */
+        .hero-icons {
+            margin: 30px 0 20px;
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            animation: fadeInUp 1.6s ease;
+        }
+
+        .hero-icons i {
+            font-size: 2.2rem;
+            color: #f5c518;
+            opacity: 0.7;
+            transition: opacity 0.3s, transform 0.3s;
+        }
+
+        .hero-icons i:hover {
+            opacity: 1;
+            transform: scale(1.1);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 900px) {
+            .hero h1 {
+                font-size: 2.6rem;
+            }
+
+            .hero-stats {
+                gap: 35px;
+            }
+
+            .hero-stats .stat .number {
+                font-size: 2rem;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .hero {
+                padding: 60px 0 40px;
+                min-height: auto;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero .btn {
+                padding: 12px 32px;
+                font-size: 0.95rem;
+            }
+
+            .hero-stats {
+                gap: 25px;
+            }
+
+            .hero-stats .stat .number {
+                font-size: 1.6rem;
+            }
+
+            .hero-stats .stat .label {
+                font-size: 0.85rem;
+            }
+
+            .hero-icons {
+                gap: 25px;
+            }
+
+            .hero-icons i {
+                font-size: 1.6rem;
+            }
+        }
+
+        @media (max-width: 400px) {
+            .hero h1 {
+                font-size: 1.6rem;
+            }
+
+            .hero-stats {
+                flex-direction: column;
+                gap: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========================================================== -->
+    <!-- HOME SECTION – feature/home                                 -->
+    <!-- ========================================================== -->
+    <section class="hero" id="home">
+        <div class="container hero-content">
+
+            <h1>Welcome to <span>German International</span> School</h1>
+
+            <p>
+                Empowering minds with a world-class education rooted in German excellence.
+                Where tradition meets innovation, and every student thrives.
+            </p>
+
+            <a href="#" class="btn">Discover More</a>
+
+            <!-- Decorative icons -->
+            <div class="hero-icons">
+                <i class="fas fa-globe-europe"></i>
+                <i class="fas fa-book-open"></i>
+                <i class="fas fa-flask"></i>
+                <i class="fas fa-music"></i>
+                <i class="fas fa-futbol"></i>
+            </div>
+
+            <!-- Stats -->
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="number">45+</span>
+                    <span class="label">Nationalities</span>
+                </div>
+                <div class="stat">
+                    <span class="number">98%</span>
+                    <span class="label">Graduation Rate</span>
+                </div>
+                <div class="stat">
+                    <span class="number">30+</span>
+                    <span class="label">Extracurriculars</span>
+                </div>
+                <div class="stat">
+                    <span class="number">15:1</span>
+                    <span class="label">Student–Teacher Ratio</span>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+</body>
+</html>
