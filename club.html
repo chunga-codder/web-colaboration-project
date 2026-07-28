@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Student Clubs · Campus Life</title>
+  <!-- Font Awesome for icons (optional but adds personality) -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Roboto, system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: #f8fafc;
+      color: #0b1b2f;
+      line-height: 1.6;
+      padding: 2rem 1.5rem;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    /* header (matching the "header" feature but minimal) */
+    .page-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+      margin-bottom: 2.5rem;
+      padding-bottom: 1rem;
+      border-bottom: 2px solid #e2e8f0;
+    }
+
+    .page-header h1 {
+      font-size: 2.2rem;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      background: linear-gradient(145deg, #1e3a5f, #2b5a8a);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .page-header .subhead {
+      color: #2c5282;
+      background: #ebf4ff;
+      padding: 0.4rem 1.2rem;
+      border-radius: 40px;
+      font-weight: 500;
+      font-size: 0.95rem;
+      border: 1px solid #bee3f8;
+    }
+
+    /* clubs grid */
+    .clubs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 2rem;
+      margin: 2rem 0 3rem;
+    }
+
+    .club-card {
+      background: white;
+      border-radius: 28px;
+      padding: 1.8rem 1.5rem 1.8rem;
+      box-shadow: 0 8px 24px rgba(0, 30, 60, 0.06);
+      transition: all 0.2s ease;
+      border: 1px solid #e9edf2;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .club-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 18px 36px -8px rgba(18, 52, 77, 0.12);
+      border-color: #cbd5e0;
+    }
+
+    .club-icon {
+      font-size: 2.6rem;
+      margin-bottom: 0.4rem;
+      color: #1e4a7a;
+    }
+
+    .club-card h3 {
+      font-size: 1.6rem;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      color: #0a1a2b;
+    }
+
+    .club-tag {
+      display: inline-block;
+      background: #e6edf6;
+      color: #1e4a7a;
+      font-size: 0.7rem;
+      font-weight: 600;
+      padding: 0.2rem 0.8rem;
+      border-radius: 30px;
+      letter-spacing: 0.3px;
+      text-transform: uppercase;
+      margin-bottom: 0.8rem;
+      align-self: flex-start;
+    }
+
+    .club-desc {
+      color: #2d3f55;
+      margin: 0.5rem 0 1.2rem;
+      font-size: 0.95rem;
+      flex: 1;
+    }
+
+    .club-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-top: 1px solid #edf2f7;
+      padding-top: 1rem;
+      margin-top: 0.2rem;
+      font-size: 0.85rem;
+      color: #3c5a78;
+    }
+
+    .club-meta i {
+      margin-right: 6px;
+      color: #2b6a9e;
+    }
+
+    .btn-join {
+      background: transparent;
+      border: 1.5px solid #1e4a7a;
+      color: #1e4a7a;
+      padding: 0.4rem 1.2rem;
+      border-radius: 60px;
+      font-weight: 600;
+      font-size: 0.8rem;
+      cursor: default;
+      transition: 0.15s;
+      letter-spacing: 0.3px;
+    }
+
+    .btn-join i {
+      margin-right: 6px;
+    }
+
+    .btn-join:hover {
+      background: #1e4a7a;
+      color: white;
+    }
+
+    /* info section – additional structure */
+    .section-info {
+      background: #eef4fa;
+      border-radius: 40px;
+      padding: 2rem 2.2rem;
+      margin: 2.5rem 0 0.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      border: 1px solid #dce5ef;
+    }
+
+    .section-info p {
+      font-weight: 450;
+      color: #1b3b5c;
+    }
+
+    .section-info i {
+      color: #1e4a7a;
+      margin-right: 6px;
+    }
+
+    .badge-list {
+      display: flex;
+      gap: 1.2rem;
+      flex-wrap: wrap;
+    }
+
+    .badge-list span {
+      background: white;
+      padding: 0.3rem 1.2rem;
+      border-radius: 60px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      color: #17406b;
+      box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+      border: 1px solid #cbdae8;
+    }
+
+    footer {
+      margin-top: 3.5rem;
+      text-align: center;
+      color: #5b7390;
+      font-size: 0.9rem;
+      border-top: 1px solid #dce5ef;
+      padding-top: 2rem;
+    }
+
+    footer i {
+      color: #b22234;
+    }
+
+    /* responsive */
+    @media (max-width: 600px) {
+      .page-header {
+        flex-direction: column;
+        align-items: start;
+      }
+      .section-info {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- header (feature/header) -->
+    <header class="page-header">
+      <div>
+        <h1><i class="fas fa-users" style="color: #1e4a7a; margin-right: 12px; -webkit-text-fill-color: #1e4a7a;"></i>Clubs</h1>
+        <p style="color: #2c5282; font-weight: 400; margin-top: 4px;">Find your community · 8 active clubs</p>
+      </div>
+      <div class="subhead">
+        <i class="fas fa-calendar-alt" style="margin-right: 6px;"></i> Spring 2026
+      </div>
+    </header>
+
+    <!-- clubs section – feature/clubs -->
+    <section aria-label="University clubs directory">
+      <div class="clubs-grid">
+        <!-- Club 1 -->
+        <article class="club-card">
+          <div class="club-icon"><i class="fas fa-laptop-code"></i></div>
+          <h3>Dev Club</h3>
+          <span class="club-tag"><i class="far fa-clock"></i> Weekly</span>
+          <p class="club-desc">Build projects, hackathons, and peer coding. Open to all skill levels.</p>
+          <div class="club-meta">
+            <span><i class="fas fa-user-graduate"></i> 48 members</span>
+            <span class="btn-join"><i class="fas fa-plus-circle"></i> Join</span>
+          </div>
+        </article>
+
+        <!-- Club 2 -->
+        <article class="club-card">
+          <div class="club-icon"><i class="fas fa-robot"></i></div>
+          <h3>AI &amp; Robotics</h3>
+          <span class="club-tag"><i class="far fa-calendar"></i> Wed 6pm</span>
+          <p class="club-desc">Explore machine learning, ROS, and build autonomous systems.</p>
+          <div class="club-meta">
+            <span><i class="fas fa-user-graduate"></i> 32 members</span>
+            <span class="btn-join"><i class="fas fa-plus-circle"></i> Join</span>
+          </div>
+        </article>
+
+        <!-- Club 3 -->
+        <article class="club-card">
+          <div class="club-icon"><i class="fas fa-paint-brush"></i></div>
+          <h3>Creative Arts</h3>
+          <span class="club-tag"><i class="far fa-clock"></i> Bi-weekly</span>
+          <p class="club-desc">Painting, digital art, photography, and mixed-media workshops.</p>
+          <div class="club-meta">
+            <span><i class="fas fa-user-graduate"></i> 27 members</span>
+            <span class="btn-join"><i class="fas fa-plus-circle"></i> Join</span>
+          </div>
+        </article>
+
+        <!-- Club 4 -->
+        <article class="club-card">
+          <div class="club-icon"><i class="fas fa-dumbbell"></i></div>
+          <h3>Fitness &amp; Wellness</h3>
+          <span class="club-tag"><i class="far fa-calendar"></i> Mon/Thu</span>
+          <p class="club-desc">Group workouts, yoga, mental health talks, and outdoor activities.</p>
+          <div class="club-meta">
+            <span><i class="fas fa-user-graduate"></i> 41 members</span>
+            <span class="btn-join"><i class="fas fa-plus-circle"></i> Join</span>
+          </div>
+        </article>
+
+        <!-- Club 5 -->
+        <article class="club-card">
+          <div class="club-icon"><i class="fas fa-globe-americas"></i></div>
+          <h3>International</h3>
+          <span class="club-tag"><i class="far fa-clock"></i> Fridays</span>
+          <p class="club-desc">Cultural exchange, language tables, and global events.</p>
+          <div class="club-meta">
+            <span><i class="fas fa-user-graduate"></i> 55 members</span>
+            <span class="btn-join"><i class="fas fa-plus-circle"></i> Join</span>
+          </div>
+        </article>
+
+        <!-- Club 6 -->
+        <article class="club-card">
+          <div class="club-icon"><i class="fas fa-microphone-alt"></i></div>
+          <h3>Debate &amp; Oratory</h3>
+          <span class="club-tag"><i class="far fa-calendar"></i> Tue/Thu</span>
+          <p class="club-desc">Sharpen public speaking, critical thinking, and argumentation.</p>
+          <div class="club-meta">
+            <span><i class="fas fa-user-graduate"></i> 23 members</span>
+            <span class="btn-join"><i class="fas fa-plus-circle"></i> Join</span>
+          </div>
+        </article>
+
+        <!-- Club 7 -->
+        <article class="club-card">
+          <div class="club-icon"><i class="fas fa-music"></i></div>
+          <h3>Music Collective</h3>
+          <span class="club-tag"><i class="far fa-clock"></i> Wed 7pm</span>
+          <p class="club-desc">Jam sessions, open mics, production, and songwriting.</p>
+          <div class="club-meta">
+            <span><i class="fas fa-user-graduate"></i> 19 members</span>
+            <span class="btn-join"><i class="fas fa-plus-circle"></i> Join</span>
+          </div>
+        </article>
+
+        <!-- Club 8 -->
+        <article class="club-card">
+          <div class="club-icon"><i class="fas fa-seedling"></i></div>
+          <h3>Sustainability</h3>
+          <span class="club-tag"><i class="far fa-calendar"></i> Sat mornings</span>
+          <p class="club-desc">Gardening, recycling drives, and eco-innovation projects.</p>
+          <div class="club-meta">
+            <span><i class="fas fa-user-graduate"></i> 34 members</span>
+            <span class="btn-join"><i class="fas fa-plus-circle"></i> Join</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- extra info / about section hint (structured) -->
+    <div class="section-info">
+      <div>
+        <p><i class="fas fa-info-circle"></i> <strong>About clubs</strong> — All clubs are open to every student. 
+          <span style="background: #d4e2f0; padding: 0.1rem 0.6rem; border-radius: 30px; margin-left: 8px; font-size:0.8rem;">
+            <i class="fas fa-flag"></i> feature/clubs
+          </span>
+        </p>
+      </div>
+      <div class="badge-list">
+        <span><i class="fas fa-users"></i> 280+ members</span>
+        <span><i class="fas fa-calendar-check"></i> 22 events/month</span>
+        <span><i class="fas fa-github"></i> open source</span>
+      </div>
+    </div>
+
+    <!-- footer: purely informative -->
+    <footer>
+      <p><i class="fas fa-code"></i>  built with  ·  <i class="fas fa-heart" style="color:#b22234;"></i>  team project  ·  <i class="fas fa-branch"></i> feature/clubs</p>
+      <p style="font-size:0.75rem; margin-top: 0.6rem; opacity:0.7;">&copy; 2026 · follow the workflow: clone → switch → commit → push → PR</p>
+    </footer>
+  </div>
+</body>
+</html>
